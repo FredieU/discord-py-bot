@@ -2,6 +2,7 @@ import discord
 import os
 
 BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+BOT_TRIGGER_KEYWORD = 'remotely'
 
 client = discord.Client()
 
@@ -14,7 +15,7 @@ async def on_message(message):
   if message.author == client.user:
     return
 
-  if message.content.startswith('remotely'):
+  if message.content.startswith(BOT_TRIGGER_KEYWORD):
     await message.channel.send('Hello there!')
 
 client.run(BOT_TOKEN)
